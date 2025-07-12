@@ -14,7 +14,7 @@ const Select: FC<SelectProps> = ({name, value, options, onChange}) => {
             onChange={onChange}
         >
             {Object.entries(options).map(([key, label]) => (
-                <option key={key} value={key}>
+                <option key={key} value={label}>
                     {label}
                 </option>
             ))}

@@ -3,13 +3,15 @@ import Button from "../../shared/ui/button";
 import { useNavigate } from "react-router-dom";
 import { Category, ITask, Status, Priority } from "../../entities/task/model/task";
 import Select from "../../shared/ui/select";
+import { useTasks } from "../../app/context/task-context";
 
 interface EditFormProps { 
     gotTask: ITask;
 }
 
-const EditForm: FC<EditFormProps> = ({gotTask}) => { 
-    const [task, setTask] = useState<ITask>(gotTask);
+const EditForm: FC<EditFormProps> = ({gotTask}) => {
+    const [task, setTask] = useState<ITask>(gotTask); 
+    const { updateTask } = useTasks();
     const navigate = useNavigate();
 
     const changeHandler = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -19,7 +21,7 @@ const EditForm: FC<EditFormProps> = ({gotTask}) => {
 
     const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(task);
+        updateTask(task.id, task);
         navigate('/');
     };
 
@@ -36,7 +38,7 @@ const EditForm: FC<EditFormProps> = ({gotTask}) => {
             <textarea 
                 name="description" 
                 placeholder="Описание задачи" 
-                value={task.description || ''} 
+                value={task.description} 
                 onChange={changeHandler}
             />
             <Select

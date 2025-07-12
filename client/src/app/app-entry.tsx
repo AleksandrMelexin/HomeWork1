@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Router from './router';
+import { TaskProvider } from './context/task-context';
 import './app-entry.css';
 
 export const start = () => {
@@ -9,7 +10,9 @@ export const start = () => {
     );
     root.render(
         <React.StrictMode>
-            <Router/>
+            <TaskProvider>
+                <Router/>
+            </TaskProvider>
         </React.StrictMode>
     );
 }
