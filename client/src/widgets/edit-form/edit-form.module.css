@@ -1,0 +1,46 @@
+.formContainer {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 24px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+    width: 100%;
+}
+
+.buttons {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Стили для полей формы */
+.ant-form-item-label > label {
+    font-weight: 500;
+    color: #333;
+}
+
+.ant-input, 
+.ant-select-selector, 
+.ant-input-textarea {
+    border-radius: 4px !important;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .formContainer {
+        padding: 16px;
+    }
+    
+    .buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .buttons .ant-btn {
+        width: 100%;
+    }
+}

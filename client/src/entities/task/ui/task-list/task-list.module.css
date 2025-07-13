@@ -1,0 +1,18 @@
+.taskList {
+    padding: 16px;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.empty {
+    padding: 40px 0;
+    background: #fff;
+    border-radius: 8px;
+}

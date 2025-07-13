@@ -5,6 +5,7 @@ export const initialTasks: ITask[] = [
     {
         id: '1',
         title: "Исправить ошибку входа в систему",
+        description: "",
         category: Category.bug,
         status: Status.todo,
         priority: Priority.high
@@ -36,6 +37,7 @@ export const initialTasks: ITask[] = [
     {
         id: '5',
         title: "Написать тесты для модуля авторизации",
+        description: "",
         category: Category.test,
         status: Status.inProgress,
         priority: Priority.high

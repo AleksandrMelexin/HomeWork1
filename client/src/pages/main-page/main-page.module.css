@@ -1,0 +1,57 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.title {
+    margin: 0 !important;
+    color: #1f1f1f;
+}
+
+.addButton {
+    height: 40px;
+    font-weight: 500;
+}
+
+.taskListWrapper {
+    background: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .container {
+        padding: 16px;
+    }
+    
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    
+    .taskListWrapper {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 20px !important;
+    }
+    
+    .addButton {
+        width: 100%;
+    }
+}

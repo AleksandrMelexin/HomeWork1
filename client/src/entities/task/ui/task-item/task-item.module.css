@@ -1,0 +1,84 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 220px;
+    border-radius: 8px;
+    border: 1px solid #f0f0f0;
+    transition: all 0.2s;
+    position: relative;
+    padding-bottom: 56px;
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: #d9d9d9;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 16px 12px;
+}
+
+.taskId {
+    flex-shrink: 0;
+}
+
+.taskTitle {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    font-weight: 500;
+    color: #222;
+    margin: 0;
+}
+
+.editButton {
+    position: absolute;
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50%);
+    font-size: 12px;
+    height: 32px;
+    padding: 0 24px;
+    width: auto;
+    min-width: 120px;
+}
+
+.cardContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 16px;
+}
+
+.description {
+    margin: 0;
+    flex-grow: 1;
+    font-size: 13px;
+    color: #444;
+    line-height: 1.5;
+}
+
+.tagsWrapper {
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center; 
+    padding-bottom: 8px;
+}
+
+.tag {
+    margin: 0 !important;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 0 8px;
+    border-radius: 10px;
+    border: none;
+}

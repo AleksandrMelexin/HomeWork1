@@ -21,7 +21,7 @@ export enum Category {
 export interface ITask {
     id: string;
     title: string;
-    description?: string;
+    description: string;
     category: Category;
     status: Status;
     priority: Priority;

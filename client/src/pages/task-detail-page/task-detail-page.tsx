@@ -1,8 +1,11 @@
 import { FC } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Button from "../../shared/ui/button";
+import { Button, Typography, Result, Space } from 'antd';
 import EditForm from "../../widgets/edit-form/edit-form";
 import { useTasks } from "../../app/context/task-context";
+import styles from './task-detail-page.module.css';
+
+const { Title } = Typography;
 
 const TaskDetailPage: FC = () => {
     const { tasks } = useTasks();
@@ -11,17 +14,35 @@ const TaskDetailPage: FC = () => {
     const task = tasks.find(task => task.id === id);
 
     if (task) {
-        return(
-            <main>
-                <h1>Отредактировать задачу №{id}</h1>
-                <EditForm gotTask={task}/>
+        return (
+            <main className={styles.container}>
+                <Space direction="vertical" className={styles.header}>
+                    <Title level={2} className={styles.title}>
+                        Редактирование задачи #{id}
+                    </Title>
+                </Space>
+                <div className={styles.formWrapper}>
+                    <EditForm gotTask={task}/>
+                </div>
             </main>
         );
     } else {
-        return(
-            <main>
-                <h1>Задача с номером {id} не найдена</h1>
-                <Button onClick={() => {navigate(`/`)}}>Вернуться на главную</Button>
+        return (
+            <main className={styles.notFoundContainer}>
+                <Result
+                    status="404"
+                    title={`Задача #${id} не найдена`}
+                    subTitle="Извините, запрошенная задача не существует или была удалена"
+                    extra={
+                        <Button 
+                            type="primary" 
+                            onClick={() => navigate('/')}
+                            className={styles.homeButton}
+                        >
+                            Вернуться на главную
+                        </Button>
+                    }
+                />
             </main>
         );
     }

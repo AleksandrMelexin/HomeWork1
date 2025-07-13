@@ -1,0 +1,61 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.header {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.title {
+    margin-bottom: 8px !important;
+    text-align: center;
+    color: #1f1f1f;
+}
+
+.backButton {
+    padding: 0;
+    height: auto;
+    font-size: 14px;
+    color: #1890ff;
+}
+
+.backButton:hover {
+    color: #40a9ff;
+}
+
+.formWrapper {
+    background: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notFoundContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    padding: 24px;
+}
+
+.homeButton {
+    margin-top: 16px;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .container {
+        padding: 16px;
+    }
+    
+    .formWrapper {
+        padding: 16px;
+    }
+    
+    .title {
+        font-size: 20px !important;
+    }
+}
