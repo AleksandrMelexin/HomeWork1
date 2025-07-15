@@ -41,16 +41,15 @@
     margin: 0;
     line-height: 1.4;  
 }
-.editButton {
+.deleteButton {
     position: absolute;
-    left: 50%;
+    right: 0%;
     bottom: 16px;
-    transform: translateX(-50%);
+    transform: translateX(-20%);
     font-size: 12px;
     height: 32px;
-    padding: 0 24px;
-    width: auto;
-    min-width: 120px;
+    padding: 0 12px;
+    width: 55px;
 }
 
 .cardContent {
