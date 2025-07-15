@@ -2,84 +2,84 @@ import { ITask } from "../model/task";
 import { Category, Status, Priority } from "../model/task";
 
 export const initialTasks: ITask[] = [
-    {
-        id: '1',
-        title: "Исправить ошибку входа в систему",
-        description: "",
-        category: Category.bug,
-        status: Status.todo,
-        priority: Priority.high
-    },
-    {
-        id: '2',
-        title: "Добавить темную тему",
-        description: "Реализовать переключение между светлой и темной темами",
-        category: Category.feature,
-        status: Status.inProgress,
-        priority: Priority.medium
-    },
-    {
-        id: '3',
-        title: "Обновить документацию API",
-        description: "Добавить примеры для новых эндпоинтов",
-        category: Category.documentation,
-        status: Status.todo,
-        priority: Priority.low
-    },
-    {
-        id: '4',
-        title: "Оптимизировать загрузку изображений",
-        description: "Реализовать lazy loading для галереи",
-        category: Category.refactor,
-        status: Status.done,
-        priority: Priority.medium
-    },
-    {
-        id: '5',
-        title: "Написать тесты для модуля авторизации",
-        description: "",
-        category: Category.test,
-        status: Status.inProgress,
-        priority: Priority.high
-    },
-    {
-        id: '6',
-        title: "Исправить баг с кэшированием данных",
-        description: "Данные не обновляются после выхода из системы",
-        category: Category.bug,
-        status: Status.todo,
-        priority: Priority.high
-    },
-    {
-        id: '7',
-        title: "Добавить поддержку SVG иконок",
-        description: "Заменить PNG иконки на SVG",
-        category: Category.feature,
-        status: Status.todo,
-        priority: Priority.low
-    },
-    {
-        id: '8',
-        title: "Рефакторинг модуля уведомлений",
-        description: "Упростить логику обработки push-уведомлений",
-        category: Category.refactor,
-        status: Status.done,
-        priority: Priority.medium
-    },
-    {
-        id: '9',
-        title: "Добавить руководство для новых разработчиков",
-        description: "Описать процесс настройки окружения",
-        category: Category.documentation,
-        status: Status.inProgress,
-        priority: Priority.low
-    },
-    {
-        id: '10',
-        title: "Протестировать производительность на мобильных устройствах",
-        description: "Проверить время загрузки на iOS и Android",
-        category: Category.test,
-        status: Status.todo,
-        priority: Priority.medium
-    }
+  {
+    id: "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    title: "Исправить ошибку входа в систему",
+    description: "",
+    category: Category.bug,
+    status: Status.todo,
+    priority: Priority.high,
+  },
+  {
+    id: "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    title: "Добавить темную тему",
+    description: "Реализовать переключение между светлой и темной темами",
+    category: Category.feature,
+    status: Status.inProgress,
+    priority: Priority.medium,
+  },
+  {
+    id: "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    title: "Обновить документацию API",
+    description: "Добавить примеры для новых эндпоинтов",
+    category: Category.documentation,
+    status: Status.todo,
+    priority: Priority.low,
+  },
+  {
+    id: "d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8g",
+    title: "Оптимизировать загрузку изображений",
+    description: "Реализовать lazy loading для галереи",
+    category: Category.refactor,
+    status: Status.done,
+    priority: Priority.medium,
+  },
+  {
+    id: "e5f6a7b8-c9d0-4e1f-2a3b-4c5d6e7f8g9h",
+    title: "Написать тесты для модуля авторизации",
+    description: "",
+    category: Category.test,
+    status: Status.inProgress,
+    priority: Priority.high,
+  },
+  {
+    id: "f6a7b8c9-d0e1-4f2a-3b4c-5d6e7f8g9h0i",
+    title: "Исправить баг с кэшированием данных",
+    description: "Данные не обновляются после выхода из системы",
+    category: Category.bug,
+    status: Status.todo,
+    priority: Priority.high,
+  },
+  {
+    id: "a7b8c9d0-e1f2-4a3b-4c5d-6e7f8g9h0i1j",
+    title: "Добавить поддержку SVG иконок",
+    description: "Заменить PNG иконки на SVG",
+    category: Category.feature,
+    status: Status.todo,
+    priority: Priority.low,
+  },
+  {
+    id: "b8c9d0e1-f2a3-4b4c-5d6e-7f8g9h0i1j2k",
+    title: "Рефакторинг модуля уведомлений",
+    description: "Упростить логику обработки push-уведомлений",
+    category: Category.refactor,
+    status: Status.done,
+    priority: Priority.medium,
+  },
+  {
+    id: "c9d0e1f2-a3b4-4c5d-6e7f-8g9h0i1j2k3l",
+    title: "Добавить руководство для новых разработчиков",
+    description: "Описать процесс настройки окружения",
+    category: Category.documentation,
+    status: Status.inProgress,
+    priority: Priority.low,
+  },
+  {
+    id: "d0e1f2a3-b4c5-4d6e-7f8g-9h0i1j2k3l4m",
+    title: "Протестировать производительность на мобильных устройствах",
+    description: "Проверить время загрузки на iOS и Android",
+    category: Category.test,
+    status: Status.todo,
+    priority: Priority.medium,
+  },
 ];

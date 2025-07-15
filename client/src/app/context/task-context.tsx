@@ -1,6 +1,6 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
-import { ITask } from '../../entities/task/model/task';
-import { initialTasks } from '../../entities/task/model/mock-tasks';
+import { createContext, useContext, useState, ReactNode } from "react";
+import { ITask } from "../../entities/task/model/task";
+import { initialTasks } from "../../entities/task/model/mock-tasks";
 
 interface TaskContextType {
   tasks: ITask[];
@@ -10,10 +10,10 @@ interface TaskContextType {
 }
 
 const defaultContextValue: TaskContextType = {
-    tasks: [],
-    addTask: () => {},
-    updateTask: () => {},
-    deleteTask: () => {}
+  tasks: [],
+  addTask: () => {},
+  updateTask: () => {},
+  deleteTask: () => {},
 };
 
 const TaskContext = createContext<TaskContextType>(defaultContextValue);
@@ -26,11 +26,11 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const updateTask = (id: string, updatedTask: ITask) => {
-    setTasks(tasks.map(task => task.id === id ? updatedTask : task));
+    setTasks(tasks.map((task) => (task.id === id ? updatedTask : task)));
   };
 
   const deleteTask = (id: string) => {
-    setTasks(tasks.filter(task => task.id !== id));
+    setTasks(tasks.filter((task) => task.id !== id));
   };
 
   return (
