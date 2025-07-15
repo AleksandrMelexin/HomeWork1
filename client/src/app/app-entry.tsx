@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Router from "./router";
-import { TaskProvider } from "./context/task-context";
+import { Provider } from 'react-redux';
 import "antd/dist/reset.css";
+import { store } from "../shared/store/tasks";
 
 export const start = () => {
   const root = ReactDOM.createRoot(
@@ -10,9 +11,9 @@ export const start = () => {
   );
   root.render(
     <React.StrictMode>
-      <TaskProvider>
+      <Provider store={store}>
         <Router />
-      </TaskProvider>
+      </Provider>
     </React.StrictMode>
   );
 };

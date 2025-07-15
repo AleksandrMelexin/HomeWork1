@@ -1,14 +1,24 @@
-import { FC } from "react";
-import { Typography, Space } from "antd";
+import { FC, useEffect } from "react";
+import { Typography, Space, Button } from "antd";
+import { useNavigate } from "react-router-dom";
 import styles from "./main-page.module.css";
-import { useTasks } from "../../app/context/task-context";
 import TaskItem from "../../entities/task/ui/task-item/task-item";
 import TaskList from "../../entities/task/ui/task-list/task-list";
+import { useTypedSelector } from "../../shared/hooks/useTypedSelector";
+import { useActions } from "../../shared/hooks/useActions";
 
 const { Title } = Typography;
 
 const MainPage: FC = () => {
-  const { tasks } = useTasks();
+  const { tasks } = useTypedSelector(state => state.task);
+  const { fetchTasks } = useActions();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (tasks.length === 0) {
+      fetchTasks();
+    }
+  }, []);
 
   return (
     <main className={styles.container}>
@@ -24,7 +34,18 @@ const MainPage: FC = () => {
           renderTask={(task) => <TaskItem key={task.id} task={task} />}
         />
       </div>
+
+      <div className={styles.addButtonContainer}>
+        <Button 
+          type="primary" 
+          onClick={() => navigate('/task/new')}
+          className={styles.addButton}
+        >
+          Добавить задачу
+        </Button>
+      </div>
     </main>
   );
 };
+
 export default MainPage;

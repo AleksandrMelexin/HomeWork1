@@ -17,10 +17,19 @@
     color: #1f1f1f;
 }
 
+.addButtonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}
+
 .addButton {
+    padding: 0 32px;
     height: 40px;
     font-weight: 500;
+    font-size: 14px;
 }
+
 
 .taskListWrapper {
     background: #fff;
@@ -29,8 +38,21 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Адаптивные стили */
+.addButton {
+    padding: 0 32px;
+    height: 40px;
+    font-weight: 500;
+}
+
 @media (max-width: 768px) {
+    .addButtonContainer {
+        margin-top: 16px;
+    }
+    
+    .addButton {
+        padding: 0 24px;
+    }
+
     .container {
         padding: 16px;
     }
@@ -47,6 +69,18 @@
 }
 
 @media (max-width: 480px) {
+    .addButtonContainer {
+        margin-top: 12px;
+    }
+    
+    .addButton {
+        width: 100%;
+        max-width: 280px;
+        padding: 0 16px;
+        height: 36px;
+        font-size: 13px;
+    }
+
     .title {
         font-size: 20px !important;
     }
