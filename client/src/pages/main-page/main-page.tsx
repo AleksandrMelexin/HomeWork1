@@ -2,15 +2,15 @@ import { FC, useEffect } from "react";
 import { Typography, Space, Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import styles from "./main-page.module.css";
-import TaskItem from "../../entities/task/ui/task-item/task-item";
-import TaskList from "../../entities/task/ui/task-list/task-list";
-import { useTypedSelector } from "../../shared/hooks/useTypedSelector";
-import { useActions } from "../../shared/hooks/useActions";
+import TaskItem from "@entities/task/ui/task-item/task-item";
+import TaskList from "@entities/task/ui/task-list/task-list";
+import { useTypedSelector } from "@shared/hooks/useTypedSelector";
+import { useActions } from "@shared/hooks/useActions";
 
 const { Title } = Typography;
 
 const MainPage: FC = () => {
-  const { tasks } = useTypedSelector(state => state.task);
+  const { tasks } = useTypedSelector((state) => state.task);
   const { fetchTasks } = useActions();
   const navigate = useNavigate();
 
@@ -36,9 +36,9 @@ const MainPage: FC = () => {
       </div>
 
       <div className={styles.addButtonContainer}>
-        <Button 
-          type="primary" 
-          onClick={() => navigate('/task/new')}
+        <Button
+          type="primary"
+          onClick={() => navigate("/task/new")}
           className={styles.addButton}
         >
           Добавить задачу

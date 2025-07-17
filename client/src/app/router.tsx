@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Error404Page from "../pages/error404-page/error404-page";
-import MainPage from "../pages/main-page/main-page";
-import TaskDetailPage from "../pages/task-detail-page/task-detail-page";
-import TaskCreatePage from "../pages/create-task-page/task-create-page";
+import Error404Page from "@pages/error404-page/error404-page";
+import MainPage from "@pages/main-page/main-page";
+import TaskDetailPage from "@pages/task-detail-page/task-detail-page";
+import TaskCreatePage from "@pages/create-task-page/task-create-page";
 
 const Router = () => {
   return (

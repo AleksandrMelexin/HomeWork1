@@ -3,7 +3,7 @@ import { ITask } from "../../model/task";
 import { useNavigate } from "react-router-dom";
 import { Card, Tag, Button, Typography } from "antd";
 import styles from "./task-item.module.css";
-import { useActions } from "../../../../shared/hooks/useActions";
+import { useActions } from "@shared/hooks/useActions";
 
 const { Text, Paragraph } = Typography;
 
@@ -13,7 +13,7 @@ interface ITaskItemProps {
 
 const TaskItem: FC<ITaskItemProps> = ({ task }) => {
   const navigate = useNavigate();
-  const {removeTask} = useActions();
+  const { removeTask } = useActions();
 
   const getTagColor = (
     type: "category" | "status" | "priority",
@@ -45,12 +45,13 @@ const TaskItem: FC<ITaskItemProps> = ({ task }) => {
         return color;
       }
     }
-    
+
     return "default";
   };
 
   return (
-    <Card onClick={() => navigate(`/task/${task.id}`)}
+    <Card
+      onClick={() => navigate(`/task/${task.id}`)}
       className={styles.card}
       title={
         <div className={styles.header}>
@@ -97,7 +98,7 @@ const TaskItem: FC<ITaskItemProps> = ({ task }) => {
         size="small"
         onClick={(e) => {
           e.stopPropagation();
-          removeTask(task.id)
+          removeTask(task.id);
         }}
         className={styles.deleteButton}
       >

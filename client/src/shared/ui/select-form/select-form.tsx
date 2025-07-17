@@ -1,23 +1,28 @@
-import { Form, Select } from 'antd';
-import { Category, Priority, Status } from '../../../entities/task/model/task';
+import { Form, Select } from "antd";
+import { Category, Priority, Status } from "@entities/task/model/task";
 
 const { Option } = Select;
 
 interface SelectFormProps {
   label: string;
-  type: 'category' | 'priority' | 'status';
+  type: "category" | "priority" | "status";
   value?: string;
   onChange: (value: string) => void;
 }
 
-export const SelectForm = ({ label, type, value, onChange }: SelectFormProps) => {
+export const SelectForm = ({
+  label,
+  type,
+  value,
+  onChange,
+}: SelectFormProps) => {
   const getOptions = () => {
     switch (type) {
-      case 'category':
+      case "category":
         return Object.values(Category);
-      case 'priority':
+      case "priority":
         return Object.values(Priority);
-      case 'status':
+      case "status":
         return Object.values(Status);
       default:
         return [];
