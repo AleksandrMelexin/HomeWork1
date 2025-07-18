@@ -32,8 +32,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .ts,.tsx,",
     "lint:fix": "eslint . --ext .ts,.tsx, --fix",
-    "format": "prettier --write",
-    "vercel-build": "npm run build"
+    "format": "prettier --write"
   },
   "eslintConfig": {
     "extends": [

@@ -7,8 +7,7 @@
     "dev": "nodemon -r tsconfig-paths/register ./src/main.ts",
     "lint": "eslint . --ext .ts,",
     "lint:fix": "eslint . --ext .ts, --fix",
-    "format": "prettier --write",
-    "vercel-build": "npm run build"
+    "format": "prettier --write"
   },
   "keywords": [],
   "author": "",
