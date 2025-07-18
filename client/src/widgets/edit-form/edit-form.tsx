@@ -1,15 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import { Form, Input, Button, Select, Space } from "antd";
+import { Form, Input, Button, Space } from "antd";
 import styles from "./edit-form.module.css";
 import { ITask, Category, Status, Priority } from "@entities/task/model/task";
 import { useActions } from "@shared/hooks/useActions";
-import { SelectForm } from "@shared/ui/select-form/select-form";
+import SelectForm from "@shared/ui/select-form";
 import { taskApi } from "@entities/task/api";
 
 const { TextArea } = Input;
-const { Option } = Select;
 
 const emptyTask: ITask = {
   // задача-болванка позволит переиспользовать компонент EditForm для создания задачи
@@ -116,4 +115,5 @@ const EditForm = ({ gotTask = emptyTask, action }: EditFormProps) => {
     </div>
   );
 };
+
 export default EditForm;

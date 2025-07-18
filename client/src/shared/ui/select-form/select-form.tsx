@@ -10,12 +10,7 @@ interface SelectFormProps {
   onChange: (value: string) => void;
 }
 
-export const SelectForm = ({
-  label,
-  type,
-  value,
-  onChange,
-}: SelectFormProps) => {
+const SelectForm = ({ label, type, value, onChange }: SelectFormProps) => {
   const getOptions = () => {
     switch (type) {
       case "category":
@@ -41,3 +36,5 @@ export const SelectForm = ({
     </Form.Item>
   );
 };
+
+export default SelectForm;

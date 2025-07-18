@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { Button, Typography, Result, Space } from "antd";
 import styles from "./task-detail-page.module.css";
-import EditForm from "@widgets/edit-form/edit-form";
+import EditForm from "@widgets/edit-form/";
 import { useTypedSelector } from "@shared/hooks/useTypedSelector";
 
 const { Title } = Typography;

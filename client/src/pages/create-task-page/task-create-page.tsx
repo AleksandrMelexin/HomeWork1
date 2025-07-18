@@ -1,6 +1,6 @@
 import { Typography, Space } from "antd";
 import styles from "./task-create-page.module.css";
-import EditForm from "@widgets/edit-form/edit-form";
+import EditForm from "@widgets/edit-form/";
 
 const { Title } = Typography;
 
