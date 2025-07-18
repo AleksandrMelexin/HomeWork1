@@ -1,13 +1,28 @@
 import { ITask } from "../model/task";
 
+/**
+ * Интерфейс ответа для получения списка задач
+ * @property {ITask[]} tasks - Массив задач
+ */
 export interface GetTasksResponse {
   tasks: ITask[];
 }
 
+/**
+ * Интерфейс ответа с ошибкой
+ * @property {string} error - Сообщение об ошибке
+ */
 export interface ErrorResponse {
   error: string;
 }
 
+/**
+ * Получает список всех задач с сервера
+ * @async
+ * @returns {Promise<GetTasksResponse | ErrorResponse>}
+ *   Промис с массивом задач или сообщением об ошибке
+ * @throws {Error} При ошибке сетевого запроса
+ */
 export const getTasks = async (): Promise<GetTasksResponse | ErrorResponse> => {
   try {
     const SERVER_URL = process.env.REACT_APP_SERVER_URL;
@@ -23,6 +38,14 @@ export const getTasks = async (): Promise<GetTasksResponse | ErrorResponse> => {
   }
 };
 
+/**
+ * Получает задачу по идентификатору
+ * @async
+ * @param {string} id - UUID задачи
+ * @returns {Promise<ITask | ErrorResponse>}
+ *   Промис с задачей или сообщением об ошибке
+ * @throws {Error} При ошибке сетевого запроса
+ */
 export const getTaskById = async (
   id: string
 ): Promise<ITask | ErrorResponse> => {
@@ -40,6 +63,14 @@ export const getTaskById = async (
   }
 };
 
+/**
+ * Создает новую задачу на сервере
+ * @async
+ * @param {ITask} task - Объект задачи для создания
+ * @returns {Promise<void | ErrorResponse>}
+ *   Промис без данных или с сообщением об ошибке
+ * @throws {Error} При ошибке сетевого запроса
+ */
 export const createTask = async (
   task: ITask
 ): Promise<void | ErrorResponse> => {
@@ -56,6 +87,14 @@ export const createTask = async (
   }
 };
 
+/**
+ * Обновляет существующую задачу
+ * @async
+ * @param {ITask} task - Объект задачи с обновленными данными
+ * @returns {Promise<void | ErrorResponse>}
+ *   Промис без данных или с сообщением об ошибке
+ * @throws {Error} При ошибке сетевого запроса
+ */
 export const updateTask = async (
   task: ITask
 ): Promise<void | ErrorResponse> => {
@@ -72,6 +111,14 @@ export const updateTask = async (
   }
 };
 
+/**
+ * Удаляет задачу по идентификатору
+ * @async
+ * @param {string} id - UUID задачи для удаления
+ * @returns {Promise<void | ErrorResponse>}
+ *   Промис без данных или с сообщением об ошибке
+ * @throws {Error} При ошибке сетевого запроса
+ */
 export const deleteTask = async (id: string): Promise<void | ErrorResponse> => {
   try {
     const SERVER_URL = process.env.REACT_APP_SERVER_URL;

@@ -20,6 +20,14 @@ const emptyTask: ITask = {
   priority: Priority.low,
 };
 
+/**
+ * Свойства компонента формы редактирования/создания задачи
+ * @property {ITask} [gotTask=emptyTask] - Существующая задача для редактирования.
+ *                                        Если не передана, используется пустой шаблон emptyTask.
+ * @property {"edit" | "add"} action - Режим работы формы:
+ *   - "edit" - редактирование существующей задачи
+ *   - "add" - создание новой задачи
+ */
 interface EditFormProps {
   gotTask?: ITask;
   action: "edit" | "add";

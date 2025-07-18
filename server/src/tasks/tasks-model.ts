@@ -1,28 +1,69 @@
+/**
+ * Перечисление приоритетов задачи
+ * 
+ * Определяет три уровня приоритета с русскоязычными значениями:
+ * - Низкий
+ * - Средний
+ * - Высокий
+ */
 export enum Priority {
-    low = "низкий",
-    medium = "средний",
-    high = "высокий",
-  }
-  
+  low = "низкий",
+  medium = "средний",
+  high = "высокий",
+}
+
+/**
+* Перечисление статусов задачи
+* 
+* Определяет возможные этапы жизненного цикла задачи:
+* - Необходимо сделать
+* - В процессе
+* - Выполнена
+*/
 export enum Status {
-    todo = "необходимо сделать",
-    inProgress = "в процессе",
-    done = "выполнена",
-  }
-  
+  todo = "необходимо сделать",
+  inProgress = "в процессе",
+  done = "выполнена",
+}
+
+/**
+* Перечисление категорий задач
+* 
+* Классифицирует задачи по типам работ:
+* - Исправление багов
+* - Разработка новых функций
+* - Работа с документацией
+* - Улучшение кода
+* - Тестирование
+*/
 export enum Category {
-    bug = "баг",
-    feature = "фича",
-    documentation = "документация",
-    refactor = "рефакторинг",
-    test = "тест",
-  }
-  
+  bug = "баг",
+  feature = "фича",
+  documentation = "документация",
+  refactor = "рефакторинг",
+  test = "тест",
+}
+
+/**
+* Интерфейс задачи
+* 
+* Описывает структуру данных задачи в системе:
+* - Уникальный идентификатор
+* - Название и описание
+* - Категория, статус и приоритет
+* 
+* @property {string} id - Уникальный идентификатор (UUID)
+* @property {string} title - Заголовок задачи
+* @property {string} description - Подробное описание
+* @property {Category} category - Категория задачи
+* @property {Status} status - Текущий статус выполнения
+* @property {Priority} priority - Уровень приоритета
+*/
 export interface ITask {
-    id: string;
-    title: string;
-    description: string;
-    category: Category;
-    status: Status;
-    priority: Priority;
+  id: string;
+  title: string;
+  description: string;
+  category: Category;
+  status: Status;
+  priority: Priority;
 }

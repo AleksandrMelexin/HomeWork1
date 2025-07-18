@@ -7,6 +7,13 @@ import { taskApi } from "../../api";
 
 const { Text, Paragraph } = Typography;
 
+/**
+ * Свойства компонента TaskItem
+ * @property {ITask} task - Объект задачи для отображения.
+ *                         Содержит все необходимые данные:
+ *                         - id, title, description
+ *                         - category, status, priority
+ */
 interface ITaskItemProps {
   task: ITask;
 }
