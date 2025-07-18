@@ -1,9 +1,8 @@
-import { initialTasks } from "@entities/task/model/mock-tasks";
 import { ITask } from "@entities/task/model/task";
 import { TaskActionTypes } from "../types/task";
 
-export const fetchTasks = () => {
-  const response = initialTasks;
+export const fetchTasks = (tasks: ITask[]) => {
+  const response = tasks;
   return {
     type: TaskActionTypes.FETCH_TASKS,
     payload: response,

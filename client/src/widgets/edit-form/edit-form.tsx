@@ -6,6 +6,7 @@ import styles from "./edit-form.module.css";
 import { ITask, Category, Status, Priority } from "@entities/task/model/task";
 import { useActions } from "@shared/hooks/useActions";
 import { SelectForm } from "@shared/ui/select-form/select-form";
+import { taskApi } from "@entities/task/api";
 
 const { TextArea } = Input;
 const { Option } = Select;
@@ -27,10 +28,10 @@ interface EditFormProps {
 
 const EditForm: FC<EditFormProps> = ({ gotTask = emptyTask, action }) => {
   const { addTask, updateTask } = useActions();
-  if (!gotTask.id) {
-    gotTask.id = uuidv4();
-  }
-  const [task, setTask] = useState<ITask>(gotTask);
+  const [task, setTask] = useState<ITask>({
+    ...gotTask,
+    id: gotTask.id || uuidv4(),
+  });
   const navigate = useNavigate();
   const [form] = Form.useForm();
 
@@ -49,8 +50,10 @@ const EditForm: FC<EditFormProps> = ({ gotTask = emptyTask, action }) => {
     };
 
     if (action === "edit") {
+      taskApi.updateTask(currentTask);
       updateTask(currentTask);
     } else {
+      taskApi.createTask(currentTask);
       addTask(currentTask);
     }
     navigate("/");

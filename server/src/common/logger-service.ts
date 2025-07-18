@@ -15,7 +15,7 @@ export class LoggerService {
     console.log(`[warning] ${message}`);
   }
 
-  errorLog(message: string) {
-    console.log(`[error] ${message} :(`);
+  errorLog(err: Error) {
+    console.log(`[error] ${err.message} :(`);
   }
 }

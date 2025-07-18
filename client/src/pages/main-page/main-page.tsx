@@ -6,6 +6,7 @@ import TaskItem from "@entities/task/ui/task-item/task-item";
 import TaskList from "@entities/task/ui/task-list/task-list";
 import { useTypedSelector } from "@shared/hooks/useTypedSelector";
 import { useActions } from "@shared/hooks/useActions";
+import { taskApi } from "@entities/task/api";
 
 const { Title } = Typography;
 
@@ -14,9 +15,18 @@ const MainPage: FC = () => {
   const { fetchTasks } = useActions();
   const navigate = useNavigate();
 
+  async function getTasksFromAPI() {
+    const res = await taskApi.getTasks();
+    if ("error" in res) {
+      console.error(res.error);
+    } else {
+      fetchTasks(res.tasks);
+    }
+  }
+
   useEffect(() => {
     if (tasks.length === 0) {
-      fetchTasks();
+      getTasksFromAPI();
     }
   }, []);
 

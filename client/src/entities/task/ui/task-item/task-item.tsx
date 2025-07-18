@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Card, Tag, Button, Typography } from "antd";
 import styles from "./task-item.module.css";
 import { useActions } from "@shared/hooks/useActions";
+import { taskApi } from "../../api";
 
 const { Text, Paragraph } = Typography;
 
@@ -14,6 +15,11 @@ interface ITaskItemProps {
 const TaskItem: FC<ITaskItemProps> = ({ task }) => {
   const navigate = useNavigate();
   const { removeTask } = useActions();
+
+  async function removeTaskByAPI(id: string) {
+    await taskApi.deleteTask(id);
+    removeTask(id);
+  }
 
   const getTagColor = (
     type: "category" | "status" | "priority",
@@ -98,7 +104,7 @@ const TaskItem: FC<ITaskItemProps> = ({ task }) => {
         size="small"
         onClick={(e) => {
           e.stopPropagation();
-          removeTask(task.id);
+          removeTaskByAPI(task.id);
         }}
         className={styles.deleteButton}
       >

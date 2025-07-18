@@ -1,5 +1,5 @@
 import { DotenvParseOutput, DotenvConfigOutput, config } from "dotenv";
-import { LoggerService } from "./logger.service";
+import { LoggerService } from "./logger-service";
 
 export class ConfigService {
   private readonly config: DotenvParseOutput;
@@ -9,7 +9,7 @@ export class ConfigService {
     this._loggerService = loggerService;
     const result: DotenvConfigOutput = config();
     if (result.error) {
-      loggerService.errorLog("Не удалось прочитать .env файл для конфигурации");
+      loggerService.errorLog(new Error("Не удалось прочитать .env файл для конфигурации"));
     } else {
       loggerService.successLog("Конфигурация загружена");
       this.config = result.parsed as DotenvParseOutput;
