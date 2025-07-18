@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { Form, Input, Button, Select, Space } from "antd";
@@ -26,7 +26,7 @@ interface EditFormProps {
   action: "edit" | "add";
 }
 
-const EditForm: FC<EditFormProps> = ({ gotTask = emptyTask, action }) => {
+const EditForm = ({ gotTask = emptyTask, action }: EditFormProps) => {
   const { addTask, updateTask } = useActions();
   const [task, setTask] = useState<ITask>({
     ...gotTask,

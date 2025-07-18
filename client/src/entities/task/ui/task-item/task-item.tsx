@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { ITask } from "../../model/task";
 import { useNavigate } from "react-router-dom";
 import { Card, Tag, Button, Typography } from "antd";
@@ -12,7 +11,7 @@ interface ITaskItemProps {
   task: ITask;
 }
 
-const TaskItem: FC<ITaskItemProps> = ({ task }) => {
+const TaskItem = ({ task }: ITaskItemProps) => {
   const navigate = useNavigate();
   const { removeTask } = useActions();
 

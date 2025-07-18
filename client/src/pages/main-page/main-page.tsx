@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { useEffect } from "react";
 import { Typography, Space, Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import styles from "./main-page.module.css";
@@ -10,7 +10,7 @@ import { taskApi } from "@entities/task/api";
 
 const { Title } = Typography;
 
-const MainPage: FC = () => {
+const MainPage = () => {
   const { tasks } = useTypedSelector((state) => state.task);
   const { fetchTasks } = useActions();
   const navigate = useNavigate();

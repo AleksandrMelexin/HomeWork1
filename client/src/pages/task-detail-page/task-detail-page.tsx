@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button, Typography, Result, Space } from "antd";
 import styles from "./task-detail-page.module.css";
@@ -7,7 +6,7 @@ import { useTypedSelector } from "@shared/hooks/useTypedSelector";
 
 const { Title } = Typography;
 
-const TaskDetailPage: FC = () => {
+const TaskDetailPage = () => {
   const { tasks } = useTypedSelector((state) => state.task);
   const navigate = useNavigate();
   const { id } = useParams();

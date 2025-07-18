@@ -1,11 +1,10 @@
-import { FC } from "react";
 import { Typography, Space } from "antd";
 import styles from "./task-create-page.module.css";
 import EditForm from "@widgets/edit-form/edit-form";
 
 const { Title } = Typography;
 
-const TaskDetailPage: FC = () => {
+const TaskDetailPage = () => {
   return (
     <main className={styles.container}>
       <Space direction="vertical" className={styles.header}>

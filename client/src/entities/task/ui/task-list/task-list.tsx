@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { ITask } from "../../model/task";
 import { Row, Col, Empty, Spin } from "antd";
 import styles from "./task-list.module.css";
@@ -17,13 +16,13 @@ interface TaskListProps {
   };
 }
 
-const TaskList: FC<TaskListProps> = ({
+const TaskList = ({
   tasks,
   renderTask,
   loading = false,
   gutter = [16, 16],
   cols = { xs: 1, sm: 2, md: 3, lg: 4 },
-}) => {
+}: TaskListProps) => {
   if (loading) {
     return (
       <div className={styles.loadingContainer}>
