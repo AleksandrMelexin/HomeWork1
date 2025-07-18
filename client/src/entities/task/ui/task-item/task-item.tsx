@@ -1,19 +1,31 @@
-import { FC } from "react";
 import { ITask } from "../../model/task";
 import { useNavigate } from "react-router-dom";
 import { Card, Tag, Button, Typography } from "antd";
 import styles from "./task-item.module.css";
-import { useActions } from "../../../../shared/hooks/useActions";
+import { useActions } from "@shared/hooks/useActions";
+import { taskApi } from "../../api";
 
 const { Text, Paragraph } = Typography;
 
+/**
+ * Свойства компонента TaskItem
+ * @property {ITask} task - Объект задачи для отображения.
+ *                         Содержит все необходимые данные:
+ *                         - id, title, description
+ *                         - category, status, priority
+ */
 interface ITaskItemProps {
   task: ITask;
 }
 
-const TaskItem: FC<ITaskItemProps> = ({ task }) => {
+const TaskItem = ({ task }: ITaskItemProps) => {
   const navigate = useNavigate();
-  const {removeTask} = useActions();
+  const { removeTask } = useActions();
+
+  async function removeTaskByAPI(id: string) {
+    await taskApi.deleteTask(id);
+    removeTask(id);
+  }
 
   const getTagColor = (
     type: "category" | "status" | "priority",
@@ -45,12 +57,13 @@ const TaskItem: FC<ITaskItemProps> = ({ task }) => {
         return color;
       }
     }
-    
+
     return "default";
   };
 
   return (
-    <Card onClick={() => navigate(`/task/${task.id}`)}
+    <Card
+      onClick={() => navigate(`/task/${task.id}`)}
       className={styles.card}
       title={
         <div className={styles.header}>
@@ -97,7 +110,7 @@ const TaskItem: FC<ITaskItemProps> = ({ task }) => {
         size="small"
         onClick={(e) => {
           e.stopPropagation();
-          removeTask(task.id)
+          removeTaskByAPI(task.id);
         }}
         className={styles.deleteButton}
       >

@@ -1,5 +1,5 @@
-import * as taskActionCreators from './task-action'
+import * as taskActionCreators from "./task-action";
 
-export default { 
-    ...taskActionCreators
-}
+export default {
+  ...taskActionCreators,
+};

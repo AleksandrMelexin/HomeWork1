@@ -1,5 +1,4 @@
-import { ITask } from "../model/task";
-import { Category, Status, Priority } from "../model/task";
+import { ITask, Category, Status, Priority } from "./tasks-model";
 
 export const initialTasks: ITask[] = [
   {

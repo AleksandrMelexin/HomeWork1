@@ -1,11 +1,10 @@
-import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { Result, Button, Typography, Space } from "antd";
 import styles from "./error404-page.module.css";
 
 const { Title, Text } = Typography;
 
-const Error404Page: FC = () => {
+const Error404Page = () => {
   const navigate = useNavigate();
 
   return (

@@ -13,6 +13,7 @@
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@types/react-router-dom": "^5.3.3",
+    "@types/uuid": "^10.0.0",
     "antd": "^5.26.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -25,9 +26,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .ts,.tsx,",
     "lint:fix": "eslint . --ext .ts,.tsx, --fix",
@@ -52,9 +53,9 @@
     ]
   },
   "devDependencies": {
+    "@craco/craco": "^7.1.0",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
-    "@vitejs/plugin-react": "^3.1.0",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -62,7 +63,6 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^4.6.2",
     "prettier": "^3.6.2",
-    "vite": "^4.5.14",
-    "vite-tsconfig-paths": "^5.1.4"
+    "tsconfig-paths": "^4.2.0"
   }
 }

@@ -1,14 +1,14 @@
-import { FC, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { v4 as uuidv4 } from 'uuid';
-import { Form, Input, Button, Select, Space } from "antd";
+import { v4 as uuidv4 } from "uuid";
+import { Form, Input, Button, Space } from "antd";
 import styles from "./edit-form.module.css";
-import { ITask, Category, Status, Priority } from "../../entities/task/model/task";
-import { useActions } from "../../shared/hooks/useActions";
-import { SelectForm } from "../../shared/ui/select-form/select-form";
+import { ITask, Category, Status, Priority } from "@entities/task/model/task";
+import { useActions } from "@shared/hooks/useActions";
+import SelectForm from "@shared/ui/select-form";
+import { taskApi } from "@entities/task/api";
 
 const { TextArea } = Input;
-const { Option } = Select;
 
 const emptyTask: ITask = {
   // задача-болванка позволит переиспользовать компонент EditForm для создания задачи
@@ -20,17 +20,25 @@ const emptyTask: ITask = {
   priority: Priority.low,
 };
 
+/**
+ * Свойства компонента формы редактирования/создания задачи
+ * @property {ITask} [gotTask=emptyTask] - Существующая задача для редактирования.
+ *                                        Если не передана, используется пустой шаблон emptyTask.
+ * @property {"edit" | "add"} action - Режим работы формы:
+ *   - "edit" - редактирование существующей задачи
+ *   - "add" - создание новой задачи
+ */
 interface EditFormProps {
   gotTask?: ITask;
-  action: 'edit' | 'add';
+  action: "edit" | "add";
 }
 
-const EditForm: FC<EditFormProps> = ({ gotTask = emptyTask, action }) => {
-  const {addTask, updateTask} = useActions();
-  if (!gotTask.id) {
-    gotTask.id = uuidv4();
-  }
-  const [task, setTask] = useState<ITask>(gotTask);
+const EditForm = ({ gotTask = emptyTask, action }: EditFormProps) => {
+  const { addTask, updateTask } = useActions();
+  const [task, setTask] = useState<ITask>({
+    ...gotTask,
+    id: gotTask.id || uuidv4(),
+  });
   const navigate = useNavigate();
   const [form] = Form.useForm();
 
@@ -41,16 +49,18 @@ const EditForm: FC<EditFormProps> = ({ gotTask = emptyTask, action }) => {
   const submitHandler = () => {
     const currentTask = {
       ...task,
-      title: form.getFieldValue('title'),
-      description: form.getFieldValue('description'),
-      category: form.getFieldValue('category'),
-      status: form.getFieldValue('status'),
-      priority: form.getFieldValue('priority'),
+      title: form.getFieldValue("title"),
+      description: form.getFieldValue("description"),
+      category: form.getFieldValue("category"),
+      status: form.getFieldValue("status"),
+      priority: form.getFieldValue("priority"),
     };
-  
-    if (action === 'edit') {
+
+    if (action === "edit") {
+      taskApi.updateTask(currentTask);
       updateTask(currentTask);
     } else {
+      taskApi.createTask(currentTask);
       addTask(currentTask);
     }
     navigate("/");
@@ -74,7 +84,7 @@ const EditForm: FC<EditFormProps> = ({ gotTask = emptyTask, action }) => {
             onChange={(e) => changeHandler("title", e.target.value)}
           />
         </Form.Item>
-  
+
         <Form.Item label="Описание задачи" name="description">
           <TextArea
             rows={4}
@@ -82,25 +92,25 @@ const EditForm: FC<EditFormProps> = ({ gotTask = emptyTask, action }) => {
             onChange={(e) => changeHandler("description", e.target.value)}
           />
         </Form.Item>
-  
+
         <SelectForm
           label="Категория"
           type="category"
           onChange={(value) => changeHandler("category", value)}
         />
-  
+
         <SelectForm
           label="Статус"
           type="status"
           onChange={(value) => changeHandler("status", value)}
         />
-  
+
         <SelectForm
           label="Приоритет"
           type="priority"
           onChange={(value) => changeHandler("priority", value)}
         />
-  
+
         <Form.Item className={styles.buttons}>
           <Space>
             <Button type="primary" htmlType="submit">
@@ -113,5 +123,5 @@ const EditForm: FC<EditFormProps> = ({ gotTask = emptyTask, action }) => {
     </div>
   );
 };
-export default EditForm;
 
+export default EditForm;
